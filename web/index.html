@@ -312,18 +312,23 @@
         <script>
             $(document).ready(function () {
                 var vidEvaluacion = document.getElementById("vidEvaluacion");
-                var objArrayRiesgos = [new puntoRiesgo(33, 36)
-                            , new puntoRiesgo(65, 73)
-                            , new puntoRiesgo(131, 134)
-                            , new puntoRiesgo(150, 154)
-                            , new puntoRiesgo(187, 189)
-                            , new puntoRiesgo(237, 240)
-                            , new puntoRiesgo(252, 255)];
+                var objArrayRiesgos = [new puntoRiesgo(33,36)
+                                        ,new puntoRiesgo(65,73)
+                                        ,new puntoRiesgo(131,134)
+                                        ,new puntoRiesgo(150,154)
+                                        ,new puntoRiesgo(187,189)
+                                        ,new puntoRiesgo(237,240)
+                                        ,new puntoRiesgo(252,255)];      
 
                 var objArrayRiesgosUser = new Array();
+                var cantAciertos = 0;
+                var sumReaccion = 0;
 
                 $("#btnIniciar").hide();
                 $("#divEvaluacion").hide();
+                $("#divFinal_01").hide();
+                $("#divFinal_02").hide();
+                $("#divFinal_03").hide();
 
                 $("#vidIntro").on('ended', function () {
                     $("#btnIniciar").show("slow");
@@ -340,36 +345,47 @@
                 });
 
                 $("#vidEvaluacion").on('ended', function () {
-                    for (i = 0; i < objArrayRiesgosUser.length; i++) {
-                        for (j = 0; j < objArrayRiesgos.length; j++) {
+                    for(i = 0; i< objArrayRiesgosUser.length; i++){
+                        for(j = 0; j < objArrayRiesgos.length; j++){
                             var inicio = objArrayRiesgos[j].inicio;
                             var fin = objArrayRiesgos[j].fin;
-                            var promAcierto = (inicio + fin) / 2;
-                            if (objArrayRiesgosUser[i].inicio >= inicio & objArrayRiesgosUser[i].inicio <= fin) {
+                            var promAcierto = (inicio + fin)/2;
+                            if(objArrayRiesgosUser[i].inicio >= inicio & objArrayRiesgosUser[i].inicio <= fin){
                                 objArrayRiesgosUser[i].acierto = 1;
-                                objArrayRiesgosUser[i].reaccion = promAcierto - objArrayRiesgosUser[i].inicio;
+                                objArrayRiesgosUser[i].reaccion = promAcierto - objArrayRiesgosUser[i].inicio                         ;
                             }
-
                         }
                     }
-                    for (i = 0; i < objArrayRiesgosUser.length; i++) {
+                    for(i = 0; i< objArrayRiesgosUser.length; i++){
+                        if(objArrayRiesgosUser[i].acierto === 1){
+                            cantAciertos = cantAciertos + 1;
+                            sumReaccion = sumReaccion + objArrayRiesgosUser[i].reaccion;
+                        }
                         console.log("Click: " + objArrayRiesgosUser[i].inicio + " --|-- "
-                                + "Acierto: " + objArrayRiesgosUser[i].acierto + " --|-- "
-                                + "Reaccion: " + objArrayRiesgosUser[i].reaccion + " --|-- ");
+                                    + "Acierto: " + objArrayRiesgosUser[i].acierto + " --|-- "
+                                    + "Reaccion: " + objArrayRiesgosUser[i].reaccion + " --|-- ");
                     }
-                    /*var maxValor = 6;
-                     var valor = parseInt($("#valor").val());
-                     console.log(valor);
-                     if (valor > maxValor) {
-                     alert("Excedió el número de intentos permitidos");
-                     } else if (valor === maxValor) {
-                     alert("Excelente !! \n Prueba superada");
-                     } else if (valor >= 4) {
-                     alert("Buen puntaje\nPuedes hacerlo mejor");
-                     } else {
-                     alert("Mejora tu nivel de observación");
-                     }
-                     $("#valor").val(0);*/
+                    console.log("Cantidad aciertos: + " + cantAciertos);
+                    console.log("Suma reacción: + " + sumReaccion);
+                    console.log("Porcentaje aciertos: + " + cantAciertos/objArrayRiesgos.length);
+                    console.log("Promedio reacción: " + sumReaccion/cantAciertos);
+
+                    if(cantAciertos/objArrayRiesgos.length > 0.66){
+                        var vidFinal = document.getElementById("vidFinal_01");
+                        $("#divEvaluacion").hide("slow");
+                        $("#divFinal_01").show();
+                        vidFinal.play();
+                    }else if(cantAciertos/objArrayRiesgos.length > 0.33){
+                        var vidEvaluacion = document.getElementById("vidFinal_02");
+                        $("#divEvaluacion").hide("slow");
+                        $("#divFinal_02").show();
+                        vidFinal.play();
+                    }else{
+                        $("#divEvaluacion").hide("slow");
+                        var vidEvaluacion = document.getElementById("vidFinal_03");
+                        $("#divFinal_03").show();
+                        vidFinal.play();
+                    }
                 });
             });
         </script>
