@@ -59,10 +59,10 @@
                         <!--<span class="text-info">Del Futuro</span>-->
                     </h1><hr>
 
-                         
+
                     <div id="divIntro" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidIntro" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" autoplay>
+                            <video id="vidIntro" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" autoplay controls>
                                 <source src="Recursos/intro.mp4" type="video/mp4" />
                                 <source src="Recursos/intro.ogg" type="video/ogg" />
                                 Su navegador no soporta la reproducción de multimedia
@@ -70,50 +70,66 @@
                         </div>
                         <div class="clearfix"></div><br>
                         <div class="col-lg-12 text-center">
-                            
                             <button id="btnIniciar" type="button" class="btn btn-primary">Realizar la Evaluacion</button>
-                            
-                          
                         </div>
                     </div>
                     <div id="divEvaluacion" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
+                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" controls>
                                 <source src="Recursos/Video 1.2.mp4" type="video/mp4"/>
                             </video>
                         </div>
                     </div>
-                    <div id="divFinal_01" class="container">
+                    <div id="divFinal" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidFinal_01" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-                                <source src="Recursos/01 - PuntuacionAlta.mp4" type="video/mp4" />
-                                <source src="Recursos/01 - PuntuacionAlta.ogg" type="video/ogg" />
-                                Su navegador no soporta la reproducción de multimedia
+                            <video id="vidFinal" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" controls>
                             </video>
                         </div>
                     </div>
-                    <div id="divFinal_02" class="container">
-                        <div class="col-lg-12 text-center">
-                            <video id="vidFinal_02" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-                                <source src="Recursos/02 - PuntuacionMedia.mp4" type="video/mp4" />
-                                <source src="Recursos/02 - PuntuacionMedia.ogg" type="video/ogg" />
-                                Su navegador no soporta la reproducción de multimedia
-                            </video>
+                    <div id="divResultados">
+                        <div class="col-lg-12">
+                            <h4>Tus resultados son:</h4><br>
+                            <h5 id="cantAciertos">Cantidad de Aciertos: </h5>
+                            <h5 id="reaacion">Reacción: </h5>
                         </div>
-                    </div>
-                    <div id="divFinal_03" class="container">
-                        <div class="col-lg-12 text-center">
-                            <video id="vidFinal_03" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-                                <source src="Recursos/03 - PuntuacionBaja.mp4" type="video/mp4" />
-                                <source src="Recursos/03 - PuntuacionBaja.ogg" type="video/ogg" />
-                                Su navegador no soporta la reproducción de multimedia
-                            </video>
-                        </div>
+                        <table class="table col-lg-12">
+                            <thead>
+                            <th>
+                                Riesgos que debias buscar
+                            </th>
+                            <th>
+                                Riesgos encontrados
+                            </th>
+                            </thead>
+                            <tr>
+                                <td class="col-lg-6">
+                                    <div id="divRiesgos">
+                                        <video id="vidEvaluacion" class="col-lg-4" controls>
+                                            <source src="Recursos/Video 1.2.mp4#t=33,36" type="video/mp4"/>
+                                        </video>
+                                        <video id="vidEvaluacion" class="col-lg-4" controls>
+                                            <source src="Recursos/Video 1.2.mp4#t=65,73" type="video/mp4"/>
+                                        </video>
+                                        <video id="vidEvaluacion" class="col-lg-4" controls>
+                                            <source src="Recursos/Video 1.2.mp4#t=131,134" type="video/mp4"/>
+                                        </video>
+                                        <video id="vidEvaluacion" class="col-lg-4" controls>
+                                            <source src="Recursos/Video 1.2.mp4#t=150,154" type="video/mp4"/>
+                                        </video>
+                                    </div>
+                                </td>
+                                <td class="col-lg-12">
+                                    <div id="divRiesgosEncontrados" class="col-lg-6">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <audio src="Recursos/sonido1.ogg" id="audClicVideo">  
-                        Tu navegador no soporta el elemento <code>audio</code>
-                    </audio>
+                    Tu navegador no soporta el elemento 
+                    <code>audio</code>
+                </audio>
             </section>
         </div>
 
@@ -126,7 +142,7 @@
 
         <!-- Custom scripts for this template -->
         <!--<script src="js/resume.min.js"></script>-->
-        
+
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.easing.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -145,13 +161,13 @@
         <script>
             $(document).ready(function () {
                 var vidEvaluacion = document.getElementById("vidEvaluacion");
-                var objArrayRiesgos = [new puntoRiesgo(33,36)
-                                        ,new puntoRiesgo(65,73)
-                                        ,new puntoRiesgo(131,134)
-                                        ,new puntoRiesgo(150,154)
-                                        ,new puntoRiesgo(187,189)
-                                        ,new puntoRiesgo(237,240)
-                                        ,new puntoRiesgo(252,255)];      
+                var objArrayRiesgos = [new puntoRiesgo(33, 36)
+                            , new puntoRiesgo(65, 73)
+                            , new puntoRiesgo(131, 134)
+                            , new puntoRiesgo(150, 154)
+                            , new puntoRiesgo(187, 189)
+                            , new puntoRiesgo(237, 240)
+                            , new puntoRiesgo(252, 255)];
 
                 var objArrayRiesgosUser = new Array();
                 var cantAciertos = 0;
@@ -159,9 +175,8 @@
 
                 $("#btnIniciar").hide();
                 $("#divEvaluacion").hide();
-                $("#divFinal_01").hide();
-                $("#divFinal_02").hide();
-                $("#divFinal_03").hide();
+                $("#divFinal").hide();
+                $("#divResultados").hide();
 
                 $("#vidIntro").on('ended', function () {
                     $("#btnIniciar").show("slow");
@@ -180,54 +195,58 @@
                 });
 
                 $("#vidEvaluacion").on('ended', function () {
-                    for(i = 0; i< objArrayRiesgosUser.length; i++){
-                        for(j = 0; j < objArrayRiesgos.length; j++){
+                    for (i = 0; i < objArrayRiesgosUser.length; i++) {
+                        for (j = 0; j < objArrayRiesgos.length; j++) {
                             var inicio = objArrayRiesgos[j].inicio;
                             var fin = objArrayRiesgos[j].fin;
-                            var promAcierto = (inicio + fin)/2;
-                            if(objArrayRiesgosUser[i].inicio >= inicio & objArrayRiesgosUser[i].inicio <= fin){
+                            var promAcierto = (inicio + fin) / 2;
+                            if (objArrayRiesgosUser[i].inicio >= inicio & objArrayRiesgosUser[i].inicio <= fin) {
                                 objArrayRiesgosUser[i].acierto = 1;
-                                objArrayRiesgosUser[i].reaccion = promAcierto - objArrayRiesgosUser[i].inicio                         ;
+                                objArrayRiesgosUser[i].reaccion = promAcierto - objArrayRiesgosUser[i].inicio;
                             }
                         }
                     }
-                    for(i = 0; i< objArrayRiesgosUser.length; i++){
-                        if(objArrayRiesgosUser[i].acierto === 1){
+                    for (i = 0; i < objArrayRiesgosUser.length; i++) {
+                        if (objArrayRiesgosUser[i].acierto === 1) {
                             cantAciertos = cantAciertos + 1;
                             sumReaccion = sumReaccion + objArrayRiesgosUser[i].reaccion;
                         }
                         console.log("Click: " + objArrayRiesgosUser[i].inicio + " --|-- "
-                                    + "Acierto: " + objArrayRiesgosUser[i].acierto + " --|-- "
-                                    + "Reaccion: " + objArrayRiesgosUser[i].reaccion + " --|-- ");
+                                + "Acierto: " + objArrayRiesgosUser[i].acierto + " --|-- "
+                                + "Reaccion: " + objArrayRiesgosUser[i].reaccion + " --|-- ");
                     }
                     console.log("Cantidad aciertos: + " + cantAciertos);
                     console.log("Suma reacción: + " + sumReaccion);
-                    console.log("Porcentaje aciertos: + " + cantAciertos/objArrayRiesgos.length);
-                    console.log("Promedio reacción: " + sumReaccion/cantAciertos);
-                
-                    if(cantAciertos/objArrayRiesgos.length > 0.66){
-                        var vidFinal = document.getElementById("vidFinal_01");
-                        $("#divEvaluacion").hide();
-                        $("#divFinal_01").show("slow");
+                    console.log("Porcentaje aciertos: + " + cantAciertos / objArrayRiesgos.length);
+                    console.log("Promedio reacción: " + sumReaccion / cantAciertos);
+
+                    $("#divEvaluacion").hide();
+                    $("#divFinal").show("slow");
+
+                    if (cantAciertos / objArrayRiesgos.length > 0.66) {
+                        var vidFinal = document.getElementById("vidFinal");
                         vidFinal.play();
-                    }else if(cantAciertos/objArrayRiesgos.length > 0.33){
-                        var vidFinal = document.getElementById("vidFinal_02");
-                        $("#divEvaluacion").hide();
-                        $("#divFinal_02").show("slow");
+                    } else if (cantAciertos / objArrayRiesgos.length > 0.33) {
+                        var vidFinal = document.getElementById("vidFinal");
                         vidFinal.play();
-                    }else{
-                        var vidFinal = document.getElementById("vidFinal_03");
-                        $("#divEvaluacion").hide();
-                        $("#divFinal_03").show("slow");
+                    } else {
+                        var vidFinal = document.getElementById("vidFinal");
+                        $("#vidFinal").html('<source src="Recursos/01 - PuntuacionAlta.mp4" type="video/mp4"></source>');
                         vidFinal.play();
                     }
                 });
             });
+            $("#vidFinal").on('ended', function () {
+                $("#divFinal").hide();
+                $("#divResultados").show("slow");
+                $("#cantAciertos").append($("#cantAciertos").val() + "2");
+                $("#reaacion").append($("#reaacion").val() + "2");
+            });
         </script>
 
     </body>
-    
-    
+
+
 
 </html>
 
