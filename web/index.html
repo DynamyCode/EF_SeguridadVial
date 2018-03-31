@@ -62,7 +62,7 @@
 
                     <div id="divIntro" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidIntro" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" autoplay controls>
+                            <video id="vidIntro" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" autoplay>
                                 <source src="Recursos/intro.mp4" type="video/mp4" />
                                 <source src="Recursos/intro.ogg" type="video/ogg" />
                                 Su navegador no soporta la reproducción de multimedia
@@ -75,54 +75,46 @@
                     </div>
                     <div id="divEvaluacion" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" controls>
-                                <source src="Recursos/Video 1.2.mp4" type="video/mp4"/>
+                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
                             </video>
                         </div>
                     </div>
                     <div id="divFinal" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidFinal" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" controls>
+                            <video id="vidFinal" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
                             </video>
                         </div>
                     </div>
                     <div id="divResultados">
                         <div class="col-lg-12">
                             <h4>Tus resultados son:</h4><br>
-                            <h5 id="cantAciertos">Cantidad de Aciertos: </h5>
-                            <h5 id="reaacion">Reacción: </h5>
+                            <h5 id="cantRiesgos">Cantidad de riesgos: </h5>
+                            <h5 id="cantAciertos">Cantidad de aciertos: </h5>
+                            <h5 id="cantErrores">Cantidad de errores: </h5>
+                            <h5 id="promReacion">Promedio de reacción en aciertos: </h5>                            
+                            <h5 id="porcFinal">Porcentaje final: </h5>
                         </div>
-                        <table class="table col-lg-12">
-                            <thead>
-                            <th>
+                        <table class="col-lg-12" style="text-align: center">
+                            <thead style="border-bottom: 1px solid #0634A9;border-top: 1px solid #0634A9">
+                            <th style="border-right: 1px solid #0634A9">
                                 Riesgos que debias buscar
                             </th>
                             <th>
-                                Riesgos encontrados
+                                Clicks Realizados
                             </th>
                             </thead>
-                            <tr>
-                                <td class="col-lg-6">
-                                    <div id="divRiesgos">
-                                        <video id="vidEvaluacion" class="col-lg-4" controls>
-                                            <source src="Recursos/Video 1.2.mp4#t=33,36" type="video/mp4"/>
-                                        </video>
-                                        <video id="vidEvaluacion" class="col-lg-4" controls>
-                                            <source src="Recursos/Video 1.2.mp4#t=65,73" type="video/mp4"/>
-                                        </video>
-                                        <video id="vidEvaluacion" class="col-lg-4" controls>
-                                            <source src="Recursos/Video 1.2.mp4#t=131,134" type="video/mp4"/>
-                                        </video>
-                                        <video id="vidEvaluacion" class="col-lg-4" controls>
-                                            <source src="Recursos/Video 1.2.mp4#t=150,154" type="video/mp4"/>
-                                        </video>
-                                    </div>
-                                </td>
-                                <td class="col-lg-12">
-                                    <div id="divRiesgosEncontrados" class="col-lg-6">
-                                    </div>
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td class="col-lg-6" style="border-right: 1px solid #0634A9">
+                                        <div id="divRiesgos">
+                                        </div>
+                                    </td>
+                                    <td class="col-lg-6">
+                                        <div id="divRiesgosEncontrados">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -130,23 +122,16 @@
                     Tu navegador no soporta el elemento 
                     <code>audio</code>
                 </audio>
+                <div id="divModalsRiesgos"></div>
+                <div id="divModalsClicks"></div>
             </section>
         </div>
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Plugin JavaScript -->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for this template -->
-        <!--<script src="js/resume.min.js"></script>-->
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.easing.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/wow.js"></script>
         <script>
             function puntoRiesgo(inicio, fin) {
                 this.inicio = inicio;
@@ -159,20 +144,69 @@
             }
         </script>
         <script>
+            var recursoEvaluacion = "Recursos/Video 1.2.mp4";
+            var vidEvaluacion = document.getElementById("vidEvaluacion");
+            var objArrayRiesgos = [new puntoRiesgo(33, 36)
+                        , new puntoRiesgo(65, 73)
+                        , new puntoRiesgo(131, 134)
+                        , new puntoRiesgo(150, 154)
+                        , new puntoRiesgo(187, 189)
+                        , new puntoRiesgo(237, 240)
+                        , new puntoRiesgo(252, 255)];
+
+            var objArrayRiesgosUser = new Array();
+            
+            /*var objArrayRiesgosUser = [new puntoRiesgo(33, 36)
+                        , new puntoRiesgo(65, 73)
+                        , new puntoRiesgo(131, 134)
+                        , new puntoRiesgo(150, 154)
+                        , new puntoRiesgo(187, 189)
+                        , new puntoRiesgo(237, 240)
+                        , new puntoRiesgo(252, 255)];*/
+                    
+            var cantAciertos = 0;
+            var sumReaccion = 0;
+            function abrirModal(id, tipo) {
+                switch (tipo) {
+                    case 1:
+                    {
+                        $("#modalRiesgo" + id).modal('show');
+                        $("#divModalBody" + id).append("<video class='col-lg-12' id='vidModalRiesgo" + id + "'>"
+                                + "<source src='" + recursoEvaluacion + "#t="
+                                + objArrayRiesgos[id - 1].inicio
+                                + "," + objArrayRiesgos[id - 1].fin
+                                + "'type='video/mp4'></source>"
+                                + "</video>");
+                        var vidModalRiesgo = document.getElementById("vidModalRiesgo" + id);
+                        vidModalRiesgo.play();
+                        break;
+                    }
+                    case 2:
+                    {
+                        $("#modalClick" + id).modal('show');
+                        break;
+                    }
+                }
+            }
+            function cerrarModal(id, tipo) {
+                switch (tipo) {
+                    case 1:
+                    {
+                        $("#modalRiesgo" + id).modal('hide');
+                        $("#vidModalRiesgo" + id).remove();
+                        break;
+                    }
+                    case 2:
+                    {
+                        $("#modalClick" + id).modal('hide');
+                        break;
+                    }
+                }
+
+
+            }
             $(document).ready(function () {
-                var vidEvaluacion = document.getElementById("vidEvaluacion");
-                var objArrayRiesgos = [new puntoRiesgo(33, 36)
-                            , new puntoRiesgo(65, 73)
-                            , new puntoRiesgo(131, 134)
-                            , new puntoRiesgo(150, 154)
-                            , new puntoRiesgo(187, 189)
-                            , new puntoRiesgo(237, 240)
-                            , new puntoRiesgo(252, 255)];
-
-                var objArrayRiesgosUser = new Array();
-                var cantAciertos = 0;
-                var sumReaccion = 0;
-
+                vidEvaluacion.src = recursoEvaluacion;
                 $("#btnIniciar").hide();
                 $("#divEvaluacion").hide();
                 $("#divFinal").hide();
@@ -211,43 +245,125 @@
                             cantAciertos = cantAciertos + 1;
                             sumReaccion = sumReaccion + objArrayRiesgosUser[i].reaccion;
                         }
-                        console.log("Click: " + objArrayRiesgosUser[i].inicio + " --|-- "
-                                + "Acierto: " + objArrayRiesgosUser[i].acierto + " --|-- "
-                                + "Reaccion: " + objArrayRiesgosUser[i].reaccion + " --|-- ");
                     }
-                    console.log("Cantidad aciertos: + " + cantAciertos);
-                    console.log("Suma reacción: + " + sumReaccion);
-                    console.log("Porcentaje aciertos: + " + cantAciertos / objArrayRiesgos.length);
-                    console.log("Promedio reacción: " + sumReaccion / cantAciertos);
 
                     $("#divEvaluacion").hide();
                     $("#divFinal").show("slow");
 
                     if (cantAciertos / objArrayRiesgos.length > 0.66) {
                         var vidFinal = document.getElementById("vidFinal");
+                        $("#vidFinal").html('<source src="Recursos/01 - PuntuacionAlta.mp4" type="video/mp4"></source>');
                         vidFinal.play();
                     } else if (cantAciertos / objArrayRiesgos.length > 0.33) {
                         var vidFinal = document.getElementById("vidFinal");
+                        $("#vidFinal").html('<source src="Recursos/02 - PuntuacionMedia.mp4" type="video/mp4"></source>');
                         vidFinal.play();
                     } else {
                         var vidFinal = document.getElementById("vidFinal");
-                        $("#vidFinal").html('<source src="Recursos/01 - PuntuacionAlta.mp4" type="video/mp4"></source>');
+                        $("#vidFinal").html('<source src="Recursos/03 - PuntuacionBaja.mp4" type="video/mp4"></source>');
                         vidFinal.play();
                     }
+
+                    for (i = 0; i < objArrayRiesgos.length; i++) {
+                        var video = "<a href='#' class='list-inline-item list-group-item-action col-lg-3 bg-success' onclick='abrirModal(" + (i + 1) + ",1)'>"
+                                + "<div class=''>"
+                                + "<h5 class='mb-1'>Riesgo " + (i + 1) + "</h5>"
+                                + "</div>"
+                                + "<p class='mb-1'>"
+                                + "<video class='col-lg-12'>"
+                                + "<source src='" + recursoEvaluacion + "#t="
+                                + objArrayRiesgos[i].inicio
+                                + "," + objArrayRiesgos[i].fin
+                                + "' type='video/mp4'/>"
+                                + "</video>"
+                                + "</p>"
+                                + "</a>";
+                        $('#divRiesgos').append(video);
+
+                        var modal = "<div class='modal fade' id='modalRiesgo" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
+                                + "<div class='modal-dialog'>"
+                                + "<div class='modal-content'>"
+                                + "<div class='modal-header'>"
+                                + "<h4 class='modal-title'>Riesgo " + (i + 1) + "</h4>"
+                                + "</div>"
+                                + "<div class='modal-body' id='divModalBody" + (i + 1) + "'>"
+                                + "</div>"
+                                + "<div class='modal-footer'>"
+                                + "<button type='button' class='btn btn-default' onclick='cerrarModal(" + (i + 1) + ",1)'>Cerrar</button>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>";
+                        $('#divModalsRiesgos').append(modal);
+                    }
+
+                    for (i = 0; i < objArrayRiesgosUser.length; i++) {
+                        if (objArrayRiesgosUser[i].acierto === 1)
+                            var video = "<a href='#' class='list-inline-item list-group-item-action col-lg-3 alert-success' onclick='abrirModal(" + (i + 1) + ",2)'>"
+                                    + "<div class=''>"
+                                    + "<h5 class='mb-1'>Clic " + (i + 1) + "</h5>"
+                                    + "</div>"
+                                    + "<p class='mb-1'>"
+                                    + "<video class='col-lg-12'>"
+                                    + "<source src='" + recursoEvaluacion + "#t="
+                                    + objArrayRiesgosUser[i].inicio
+                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                    + "' type='video/mp4'/>"
+                                    + "</video>"
+                                    + "</p>"
+                                    + "</a>";
+                        else
+                            var video = "<a href='#' class='list-inline-item list-group-item-action col-lg-3 alert-danger' onclick='abrirModal(" + (i + 1) + ",2)'>"
+                                    + "<div class=''>"
+                                    + "<h5 class='mb-1'>Clic " + (i + 1) + "</h5>"
+                                    + "</div>"
+                                    + "<p class='mb-1'>"
+                                    + "<video class='col-lg-12'>"
+                                    + "<source src='" + recursoEvaluacion + "#t="
+                                    + objArrayRiesgosUser[i].inicio
+                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                    + "' type='video/mp4'/>"
+                                    + "</video>"
+                                    + "</p>"
+                                    + "</a>";
+                        $('#divRiesgosEncontrados').append(video);
+
+                        var modal = "<div class='modal fade' id='modalClick" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
+                                + "<div class='modal-dialog'>"
+                                + "<div class='modal-content'>"
+                                + "<div class='modal-header'>"
+                                + "<h4 class='modal-title'>Intento " + (i + 1) + "</h4>"
+                                + "</div>"
+                                + "<div class='modal-body' id='divModalBodyClick" + (i + 1) + "'>"
+                                + "<video class='col-lg-12' id='vidModalClick" + (i + 1) + "'>"
+                                + "<source src='" + recursoEvaluacion + "#t="
+                                + objArrayRiesgosUser[i].inicio
+                                + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                + "'type='video/mp4'></source>"
+                                + "</video>"
+                                + "</div>"
+                                + "<div class='modal-footer'>"
+                                + "<button type='button' class='btn btn-default' onclick='cerrarModal(" + (i + 1) + ",2)'>Cerrar</button>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>"
+                                + "</div>";
+                        $('#divModalsClicks').append(modal);
+                    }
+                });
+
+                $("#vidFinal").on('ended', function () {
+                    $("#divFinal").hide();
+                    $("#divResultados").show("slow");
+                    $("#cantRiesgos").append($("#cantRiesgos").val() + objArrayRiesgos.length);
+                    $("#cantAciertos").append($("#cantAciertos").val() + cantAciertos);
+                    $("#cantErrores").append($("#cantErrores").val() + objArrayRiesgosUser.length - cantAciertos);
+                    $("#promReacion").append($("#promReacion").val() + (sumReaccion / cantAciertos));
+                    $("#porcFinal").append($("#porcFinal").val() + (cantAciertos / objArrayRiesgos.length) * 100);
                 });
             });
-            $("#vidFinal").on('ended', function () {
-                $("#divFinal").hide();
-                $("#divResultados").show("slow");
-                $("#cantAciertos").append($("#cantAciertos").val() + "2");
-                $("#reaacion").append($("#reaacion").val() + "2");
-            });
         </script>
-
     </body>
-
-
-
 </html>
 
 
