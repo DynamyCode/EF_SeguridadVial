@@ -24,6 +24,7 @@
         <link href="vendor/admin2/sb-admin-2.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/resume.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
     </head>
 
@@ -35,7 +36,7 @@
                     <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
                 </span>
             </a>
-           
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -90,69 +91,76 @@
                     </div>
                     <div id="divResultados">
                         <div class="row">
+                            
                             <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-default o-hidden h-100">
+                                <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important;   color: orange!important">
                                     <div class="card-body">
                                         <div class="card-body-icon">
+                                            <i class="fas fa-exclamation-circle"></i>
 
-                                            <h5 id="cantRiesgos"> </h5>
                                         </div>
-                                        <div class="mr-5" style="color: black">Riesgos</div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-default o-hidden h-100">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <h5 id="cantErrores"></h5>
-                                        </div>                                  
-
-                                        <div class="mr-5" style="color: black">Errores Cometidos</div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-default o-hidden h-100">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <h5 id="cantAciertos"></h5>
-                                        </div>     
-
-
-
-                                        <div class="mr-5" style="color: black">Aciertos</div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-default o-hidden h-100">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <h5 id="promReacion"> </h5>
-                                        </div>     
-
-
-
-                                        <div class="mr-6" style="color: black">Promedio de reacción</div>
+                                        <h5 id="cantRiesgos"> </h5>
+                                        <div class="mr-5" style="color: black">Cant. De Riesgos</div>
                                     </div>
 
                                 </div>
                             </div>
                             
-                             <div class="col-xl-12 col-sm-1 mb-1">
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important;   color: red!important">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fas fa-times-circle"></i>
+
+                                        </div>   
+
+                                        <h5 id="cantErrores"></h5>
+
+                                        <div class="mr-5" style="color: black">Cant. De Errores</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important; color: green!important">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">  
+                                            <i class="fas fa-check-circle"></i>
+
+                                        </div>     
+
+                                        <h5 id="cantAciertos"></h5>
+
+                                        <div class="mr-5" style="color: black">Cant. De Aciertos</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                           <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important; color: purple!important">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fas fa-certificate"></i>
+                                        </div>     
+
+
+                                        <h5 id="promReacion"> </h5>
+                                        <div class="mr-6" style="color: black">Prom. de reacción</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                          
+
+                            <div class="col-xl-12 col-sm-1 mb-1">
                                 <div class="card text-white bg-default o-hidden h-100">
                                     <div class="card-body">
-                                     <h5 id="porcFinal">Porcentaje final: </h5>
+                                        <h5 id="porcFinal" class="text-center">Porcentaje final: </h5>
                                     </div>
 
                                 </div>
@@ -161,14 +169,14 @@
 
                         </div>
 
-                        
+
                         <hr>
 
 
 
 
                         <table style=" border-collapse: separate;">
-                           
+
                             <tbody>
                                 <tr >
                                     <td width="50%" style=" padding: 5px; border-right: 1px solid black" >
@@ -195,6 +203,8 @@
                 <div id="divModalsClicks"></div>
             </section>
         </div>
+
+
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -329,15 +339,15 @@
                     }
                     for (i = 0; i < objArrayRiesgos.length; i++) {
                         var video = "<div class='btn alert-default col-lg-4 '  onclick='abrirModal(" + (i + 1) + ",1)'>"
-                                        + "<div >"
-                                            + "<h5 class='mb-1'>Riesgo " + (i + 1) + "</h5>"
-                                        + "</div>"
-                                        + "<video class='col-lg-12'>"
-                                            + "<source src='" + recursoEvaluacion + "#t="
-                                            + objArrayRiesgos[i].inicio
-                                            + "," + objArrayRiesgos[i].fin
-                                            + "' type='video/mp4'/>"
-                                        + "</video>"                                           
+                                + "<div >"
+                                + "<h5 class='mb-1'>Riesgo " + (i + 1) + "</h5>"
+                                + "</div>"
+                                + "<video class='col-lg-12'>"
+                                + "<source src='" + recursoEvaluacion + "#t="
+                                + objArrayRiesgos[i].inicio
+                                + "," + objArrayRiesgos[i].fin
+                                + "' type='video/mp4'/>"
+                                + "</video>"
                                 + "</div>";
                         $('#divRiesgos').append(video);
                         var modal = "<div class='modal fade' id='modalRiesgo" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
@@ -362,27 +372,27 @@
                                     + "<div>"
                                     + "<h5 class='mb-1' style='color: green'>Clic " + (i + 1) + "</h5>"
                                     + "</div>"
-                                 
+
                                     + "<video class='col-lg-12'>"
-                                        + "<source src='" + recursoEvaluacion + "#t="
-                                        + objArrayRiesgosUser[i].inicio
-                                        + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                        + "' type='video/mp4'/>"
+                                    + "<source src='" + recursoEvaluacion + "#t="
+                                    + objArrayRiesgosUser[i].inicio
+                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                    + "' type='video/mp4'/>"
                                     + "</video>"
-                                    
+
                                     + "</div>";
                         else
                             var video = "<div class='btn alert-default col-lg-4 '   onclick='abrirModal(" + (i + 1) + ",2)'>"
-                                            + "<div>"
-                                                + "<h5 class='mb-1' style='color: red'>Clic " + (i + 1) + "</h5>"
-                                            + "</div>"
+                                    + "<div>"
+                                    + "<h5 class='mb-1' style='color: red'>Clic " + (i + 1) + "</h5>"
+                                    + "</div>"
 
-                                            + "<video class='col-lg-12'>"
-                                                + "<source src='" + recursoEvaluacion + "#t="
-                                                + objArrayRiesgosUser[i].inicio
-                                                + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                                + "' type='video/mp4'/>"
-                                            + "</video>"
+                                    + "<video class='col-lg-12'>"
+                                    + "<source src='" + recursoEvaluacion + "#t="
+                                    + objArrayRiesgosUser[i].inicio
+                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                    + "' type='video/mp4'/>"
+                                    + "</video>"
                                     + "</div>";
                         $('#divRiesgosEncontrados').append(video);
                         var modal = "<div class='modal fade' id='modalClick" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
@@ -420,4 +430,21 @@
             });
         </script>
     </body>
+
+
 </html>
+
+
+<style>
+
+    .card-body-icon {
+        position: absolute;
+        z-index: 0;
+        top: -30px;
+        right: -5px;
+        font-size: 5rem;
+        -webkit-transform: rotate(15deg);
+        -ms-transform: rotate(15deg);
+        transform: rotate(15deg);
+    }
+</style>
