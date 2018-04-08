@@ -58,7 +58,7 @@
 
             <section class="resume-section p-3 p-lg-5 " id="about">
                 <div class="my-auto">
-                    <h1 class="mb-0">EVALUACION
+                    <h1 class="mb-0">EVALUACIÓN
                         <!--<span class="text-info">Del Futuro</span>-->
                     </h1><hr>
 
@@ -97,7 +97,7 @@
 
                                             <h5 id="cantRiesgos"> </h5>
                                         </div>
-                                        <div class="mr-5" style="color: black">Cantidad de riesgos</div>
+                                        <div class="mr-5" style="color: black">Riesgos</div>
                                     </div>
 
                                 </div>
@@ -111,7 +111,7 @@
                                             <h5 id="cantErrores"></h5>
                                         </div>                                  
 
-                                        <div class="mr-5" style="color: black">Cantidad de errores</div>
+                                        <div class="mr-5" style="color: black">Errores Cometidos</div>
                                     </div>
 
                                 </div>
@@ -127,7 +127,7 @@
 
 
 
-                                        <div class="mr-5" style="color: black">Cantidad de aciertos</div>
+                                        <div class="mr-5" style="color: black">Aciertos</div>
                                     </div>
 
                                 </div>
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                             
-                             <div class="col-xl-12 col-sm-2 mb-1">
+                             <div class="col-xl-12 col-sm-1 mb-1">
                                 <div class="card text-white bg-default o-hidden h-100">
                                     <div class="card-body">
                                      <h5 id="porcFinal">Porcentaje final: </h5>
@@ -171,12 +171,12 @@
                            
                             <tbody>
                                 <tr >
-                                    <td width="50%" style=" padding: 5px; border-right: 1px solid black;" >
-                                        <div id="divRiesgos">
+                                    <td width="50%" style=" padding: 5px; border-right: 1px solid black" >
+                                        <div id="divRiesgos" style=" padding: 5px; height:  300px; overflow: auto;">
                                         </div>
                                     </td>
                                     <td width="50%" style=" padding: 5px;">
-                                        <div id="divRiesgosEncontrados" style=" padding: 5px;">
+                                        <div id="divRiesgosEncontrados" style=" padding: 5px; height:  300px; overflow: auto;">
                                         </div>
                                     </td>
                                 </tr>
@@ -215,10 +215,14 @@
         <script>
             var recursoEvaluacion = "Recursos/Video 1.2.mp4";
             var vidEvaluacion = document.getElementById("vidEvaluacion");
-            var objArrayRiesgos = [new puntoRiesgo(33, 36)
-                        , new puntoRiesgo(65, 73)
+            var objArrayRiesgos = [new puntoRiesgo(36, 42)
+                        , new puntoRiesgo(59, 62)
+                        , new puntoRiesgo(65, 69)
+                        , new puntoRiesgo(70, 73)
+                        , new puntoRiesgo(75, 77)
                         , new puntoRiesgo(131, 134)
                         , new puntoRiesgo(150, 154)
+                        , new puntoRiesgo(167, 170)
                         , new puntoRiesgo(187, 189)
                         , new puntoRiesgo(237, 240)
                         , new puntoRiesgo(252, 255)];
