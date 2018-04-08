@@ -19,7 +19,9 @@
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
         <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <link href="vendor/admin2/sb-admin-2.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/resume.min.css" rel="stylesheet">
 
@@ -75,7 +77,7 @@
                     </div>
                     <div id="divEvaluacion" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
+                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" controls>
                             </video>
                         </div>
                     </div>
@@ -86,36 +88,102 @@
                         </div>
                     </div>
                     <div id="divResultados">
-                        <div class="col-lg-12">
-                            <h4>Tus resultados son:</h4><br>
-                            <h5 id="cantRiesgos">Cantidad de riesgos: </h5>
-                            <h5 id="cantAciertos">Cantidad de aciertos: </h5>
-                            <h5 id="cantErrores">Cantidad de errores: </h5>
-                            <h5 id="promReacion">Promedio de reacción en aciertos: </h5>                            
-                            <h5 id="porcFinal">Porcentaje final: </h5>
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+
+                                            <h5 id="cantRiesgos"> </h5>
+                                        </div>
+                                        <div class="mr-5" style="color: black">Cantidad de riesgos</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <h5 id="cantErrores"></h5>
+                                        </div>                                  
+
+                                        <div class="mr-5" style="color: black">Cantidad de errores</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <h5 id="cantAciertos"></h5>
+                                        </div>     
+
+
+
+                                        <div class="mr-5" style="color: black">Cantidad de aciertos</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <h5 id="promReacion"> </h5>
+                                        </div>     
+
+
+
+                                        <div class="mr-6" style="color: black">Promedio de reacción</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                             <div class="col-xl-12 col-sm-2 mb-1">
+                                <div class="card text-white bg-default o-hidden h-100">
+                                    <div class="card-body">
+                                     <h5 id="porcFinal">Porcentaje final: </h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
                         </div>
-                        <table class="col-lg-12" style="text-align: center">
-                            <thead style="border-bottom: 1px solid #0634A9;border-top: 1px solid #0634A9">
-                            <th style="border-right: 1px solid #0634A9">
-                                Riesgos que debias buscar
-                            </th>
-                            <th>
-                                Clicks Realizados
-                            </th>
-                            </thead>
+
+                        
+                        <hr>
+
+
+
+
+                        <table style=" border-collapse: separate;">
+                           
                             <tbody>
-                                <tr>
-                                    <td class="col-lg-6" style="border-right: 1px solid #0634A9">
+                                <tr >
+                                    <td width="50%" style=" padding: 5px; border-right: 1px solid black;" >
                                         <div id="divRiesgos">
                                         </div>
                                     </td>
-                                    <td class="col-lg-6">
-                                        <div id="divRiesgosEncontrados">
+                                    <td width="50%" style=" padding: 5px;">
+                                        <div id="divRiesgosEncontrados" style=" padding: 5px;">
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
+
+                        <hr>
                     </div>
                 </div>
                 <audio src="Recursos/sonido1.ogg" id="audClicVideo">  
@@ -131,7 +199,7 @@
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+        <script src="vendor/js/sb-admin-2.js"></script>
         <script>
             function puntoRiesgo(inicio, fin) {
                 this.inicio = inicio;
@@ -153,17 +221,16 @@
                         , new puntoRiesgo(187, 189)
                         , new puntoRiesgo(237, 240)
                         , new puntoRiesgo(252, 255)];
-
             var objArrayRiesgosUser = new Array();
-            
+
             /*var objArrayRiesgosUser = [new puntoRiesgo(33, 36)
-                        , new puntoRiesgo(65, 73)
-                        , new puntoRiesgo(131, 134)
-                        , new puntoRiesgo(150, 154)
-                        , new puntoRiesgo(187, 189)
-                        , new puntoRiesgo(237, 240)
-                        , new puntoRiesgo(252, 255)];*/
-                    
+             , new puntoRiesgo(65, 73)
+             , new puntoRiesgo(131, 134)
+             , new puntoRiesgo(150, 154)
+             , new puntoRiesgo(187, 189)
+             , new puntoRiesgo(237, 240)
+             , new puntoRiesgo(252, 255)];*/
+
             var cantAciertos = 0;
             var sumReaccion = 0;
             function abrirModal(id, tipo) {
@@ -202,8 +269,6 @@
                         break;
                     }
                 }
-
-
             }
             $(document).ready(function () {
                 vidEvaluacion.src = recursoEvaluacion;
@@ -211,23 +276,19 @@
                 $("#divEvaluacion").hide();
                 $("#divFinal").hide();
                 $("#divResultados").hide();
-
                 $("#vidIntro").on('ended', function () {
                     $("#btnIniciar").show("slow");
                 });
-
                 $("#btnIniciar").click(function () {
                     $("#divIntro").hide("slow");
                     $("#divEvaluacion").show();
                     vidEvaluacion.play();
                 });
-
                 $("#vidEvaluacion").on('click', function () {
                     objArrayRiesgosUser.push(new puntoRiesgoUser(vidEvaluacion.currentTime));
                     var audClicVideo = document.getElementsByTagName("audio")[0];
                     audClicVideo.play();
                 });
-
                 $("#vidEvaluacion").on('ended', function () {
                     for (i = 0; i < objArrayRiesgosUser.length; i++) {
                         for (j = 0; j < objArrayRiesgos.length; j++) {
@@ -246,10 +307,8 @@
                             sumReaccion = sumReaccion + objArrayRiesgosUser[i].reaccion;
                         }
                     }
-
                     $("#divEvaluacion").hide();
                     $("#divFinal").show("slow");
-
                     if (cantAciertos / objArrayRiesgos.length > 0.66) {
                         var vidFinal = document.getElementById("vidFinal");
                         $("#vidFinal").html('<source src="Recursos/01 - PuntuacionAlta.mp4" type="video/mp4"></source>');
@@ -263,23 +322,19 @@
                         $("#vidFinal").html('<source src="Recursos/03 - PuntuacionBaja.mp4" type="video/mp4"></source>');
                         vidFinal.play();
                     }
-
                     for (i = 0; i < objArrayRiesgos.length; i++) {
-                        var video = "<a href='#' class='list-inline-item list-group-item-action col-lg-3 bg-success' onclick='abrirModal(" + (i + 1) + ",1)'>"
-                                + "<div class=''>"
-                                + "<h5 class='mb-1'>Riesgo " + (i + 1) + "</h5>"
-                                + "</div>"
-                                + "<p class='mb-1'>"
-                                + "<video class='col-lg-12'>"
-                                + "<source src='" + recursoEvaluacion + "#t="
-                                + objArrayRiesgos[i].inicio
-                                + "," + objArrayRiesgos[i].fin
-                                + "' type='video/mp4'/>"
-                                + "</video>"
-                                + "</p>"
-                                + "</a>";
+                        var video = "<div class='btn alert-default col-lg-4 '  onclick='abrirModal(" + (i + 1) + ",1)'>"
+                                        + "<div >"
+                                            + "<h5 class='mb-1'>Riesgo " + (i + 1) + "</h5>"
+                                        + "</div>"
+                                        + "<video class='col-lg-12'>"
+                                            + "<source src='" + recursoEvaluacion + "#t="
+                                            + objArrayRiesgos[i].inicio
+                                            + "," + objArrayRiesgos[i].fin
+                                            + "' type='video/mp4'/>"
+                                        + "</video>"                                           
+                                + "</div>";
                         $('#divRiesgos').append(video);
-
                         var modal = "<div class='modal fade' id='modalRiesgo" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
                                 + "<div class='modal-dialog'>"
                                 + "<div class='modal-content'>"
@@ -296,38 +351,35 @@
                                 + "</div>";
                         $('#divModalsRiesgos').append(modal);
                     }
-
                     for (i = 0; i < objArrayRiesgosUser.length; i++) {
                         if (objArrayRiesgosUser[i].acierto === 1)
-                            var video = "<a href='#' class='list-inline-item list-group-item-action col-lg-3 alert-success' onclick='abrirModal(" + (i + 1) + ",2)'>"
-                                    + "<div class=''>"
-                                    + "<h5 class='mb-1'>Clic " + (i + 1) + "</h5>"
+                            var video = "<div class='btn alert-default col-lg-4 '  onclick='abrirModal(" + (i + 1) + ",2)'>"
+                                    + "<div>"
+                                    + "<h5 class='mb-1' style='color: green'>Clic " + (i + 1) + "</h5>"
                                     + "</div>"
-                                    + "<p class='mb-1'>"
+                                 
                                     + "<video class='col-lg-12'>"
-                                    + "<source src='" + recursoEvaluacion + "#t="
-                                    + objArrayRiesgosUser[i].inicio
-                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                    + "' type='video/mp4'/>"
+                                        + "<source src='" + recursoEvaluacion + "#t="
+                                        + objArrayRiesgosUser[i].inicio
+                                        + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                        + "' type='video/mp4'/>"
                                     + "</video>"
-                                    + "</p>"
-                                    + "</a>";
+                                    
+                                    + "</div>";
                         else
-                            var video = "<a href='#' class='list-inline-item list-group-item-action col-lg-3 alert-danger' onclick='abrirModal(" + (i + 1) + ",2)'>"
-                                    + "<div class=''>"
-                                    + "<h5 class='mb-1'>Clic " + (i + 1) + "</h5>"
-                                    + "</div>"
-                                    + "<p class='mb-1'>"
-                                    + "<video class='col-lg-12'>"
-                                    + "<source src='" + recursoEvaluacion + "#t="
-                                    + objArrayRiesgosUser[i].inicio
-                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                    + "' type='video/mp4'/>"
-                                    + "</video>"
-                                    + "</p>"
-                                    + "</a>";
-                        $('#divRiesgosEncontrados').append(video);
+                            var video = "<div class='btn alert-default col-lg-4 '   onclick='abrirModal(" + (i + 1) + ",2)'>"
+                                            + "<div>"
+                                                + "<h5 class='mb-1' style='color: red'>Clic " + (i + 1) + "</h5>"
+                                            + "</div>"
 
+                                            + "<video class='col-lg-12'>"
+                                                + "<source src='" + recursoEvaluacion + "#t="
+                                                + objArrayRiesgosUser[i].inicio
+                                                + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                                + "' type='video/mp4'/>"
+                                            + "</video>"
+                                    + "</div>";
+                        $('#divRiesgosEncontrados').append(video);
                         var modal = "<div class='modal fade' id='modalClick" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
                                 + "<div class='modal-dialog'>"
                                 + "<div class='modal-content'>"
@@ -351,7 +403,6 @@
                         $('#divModalsClicks').append(modal);
                     }
                 });
-
                 $("#vidFinal").on('ended', function () {
                     $("#divFinal").hide();
                     $("#divResultados").show("slow");
@@ -359,11 +410,9 @@
                     $("#cantAciertos").append($("#cantAciertos").val() + cantAciertos);
                     $("#cantErrores").append($("#cantErrores").val() + objArrayRiesgosUser.length - cantAciertos);
                     $("#promReacion").append($("#promReacion").val() + (sumReaccion / cantAciertos));
-                    $("#porcFinal").append($("#porcFinal").val() + (cantAciertos / objArrayRiesgos.length) * 100);
+                    $("#porcFinal").append($("#porcFinal").val() + ((cantAciertos / objArrayRiesgos.length) * 100).toFixed(3));
                 });
             });
         </script>
     </body>
 </html>
-
-
