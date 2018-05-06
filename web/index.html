@@ -14,29 +14,26 @@
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom fonts for this template -->
-        
+
         <link href="vendor/fontawesome-free-5.0.9/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/font-awesome-free-5.0.9" rel="stylesheet">
+        <!--<link href="vendor/font-awesome-free-5.0.9" rel="stylesheet">
         <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
-        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">-->
+        <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
         <link href="vendor/admin2/sb-admin-2.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/resume.min.css" rel="stylesheet">
-      
+
 
     </head>
-
     <body id="page-top">
-
         <nav style="background-color: #0634A9" class=" navbar-expand-lg navbar-dark bg " id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-none d-lg-block">
                     <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
                 </span>
             </a>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,44 +51,52 @@
                 </ul>
             </div>
         </nav>
-
         <div class="container-fluid p-0" style="background-color: #EDEDF1">
-
             <section class="resume-section p-3 p-lg-5 " id="about">
                 <div class="my-auto">
-                    <h1 class="mb-0">EVALUACIÓN
-                        <!--<span class="text-info">Del Futuro</span>-->
-                    </h1><hr>
-
-
+                    <h3 class="mb-0">EVALUACION</h3><hr>
+                    <div id="divPreIntro" class="container">
+                        <div class="col-lg-12 text-center">
+                            <h1>Hola...!</h1>
+                            <h4>El día de hoy vas a realizar una evalución sobre riesgos en la via</h4>
+                            <h4>¡Esperamos que te valla muy bien!</h4>
+                            <button id="btnVerInstruc" type="button" class="btn btn-success">Ver Instrucciones</button>
+                        </div>
+                    </div>
                     <div id="divIntro" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidIntro" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" autoplay>
-                                <source src="Recursos/intro.mp4" type="video/mp4" />
+                            <video id="vidIntro" class="col-lg-12" preload>
+                                <source src="Recursos/intro.webm" type="video/webm" />
                                 <source src="Recursos/intro.ogg" type="video/ogg" />
                                 Su navegador no soporta la reproducción de multimedia
                             </video>
                         </div>
                         <div class="clearfix"></div><br>
-                        <div class="col-lg-12 text-center">
-                            <button id="btnIniciar" type="button" class="btn btn-primary">Realizar la Evaluacion</button>
+                        <div class="col-lg-12 text-center" id="divOpciones">
+                            <button id="btnRepetir" type="button" class="btn btn-danger">Repetir Instrucciones</button>
+                            <button id="btnIniciar" type="button" class="btn btn-primary">Realizar la Evaluación</button>
                         </div>
                     </div>
                     <div id="divEvaluacion" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidEvaluacion" class="col-lg-offset-2 col-lg-8 col-lg-offset-2" controls>
+                            <video id="vidEvaluacion" class="col-lg-12" preload>
                             </video>
+                        </div>
+                    </div>
+                    <div id="divEspera" class="container">
+                        <div class="col-lg-12 text-center">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br>
+                            <span >Analizando resultados</span>
                         </div>
                     </div>
                     <div id="divFinal" class="container">
                         <div class="col-lg-12 text-center">
-                            <video id="vidFinal" class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
+                            <video id="vidFinal" class="col-lg-12" preload>
                             </video>
                         </div>
                     </div>
                     <div id="divResultados">
-                        <div class="row">
-                            
+                        <div class="row">                            
                             <div class="col-xl-3 col-sm-6 mb-3">
                                 <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important;   color: orange!important">
                                     <div class="card-body">
@@ -105,58 +110,41 @@
 
                                 </div>
                             </div>
-                            
-                            <div class="col-xl-3 col-sm-6 mb-3">
-                                <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important;   color: red!important">
-                                    <div class="card-body">
-                                        <div class="card-body-icon">
-                                            <i class="fas fa-times-circle"></i>
-
-                                        </div>   
-
-                                        <h5 id="cantErrores"></h5>
-
-                                        <div class="mr-5" style="color: black">Cant. De Errores</div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-
                             <div class="col-xl-3 col-sm-6 mb-3">
                                 <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important; color: green!important">
                                     <div class="card-body">
                                         <div class="card-body-icon">  
                                             <i class="fas fa-check-circle"></i>
-
                                         </div>     
-
                                         <h5 id="cantAciertos"></h5>
-
-                                        <div class="mr-5" style="color: black">Cant. De Aciertos</div>
+                                        <div class="mr-5" style="color: black">Cant. Aciertos</div>
                                     </div>
 
                                 </div>
+                            </div>                            
+                            <div class="col-xl-3 col-sm-6 mb-3">
+                                <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important;   color: red!important">
+                                    <div class="card-body">
+                                        <div class="card-body-icon">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div>   
+                                        <h5 id="cantErrores"></h5>
+                                        <div class="mr-5" style="color: black">Cant. Desaciertos</div>
+                                    </div>
+                                </div>
                             </div>
-
-                           <div class="col-xl-3 col-sm-6 mb-3">
+                            <div class="col-xl-3 col-sm-6 mb-3">
                                 <div class="card text-white bg-default o-hidden h-100" style="overflow: hidden !important; color: purple!important">
                                     <div class="card-body">
                                         <div class="card-body-icon">
                                             <i class="fas fa-certificate"></i>
                                         </div>     
-
-
-                                        <h5 id="promReacion"> </h5>
-                                        <div class="mr-6" style="color: black">Prom. de reacción</div>
+                                        <h5 id="promReacion"></h5>
+                                        <div class="mr-6" style="color: black">Prom. De Reacción</div>
                                     </div>
 
                                 </div>
                             </div>
-
-                          
-
                             <div class="col-xl-12 col-sm-1 mb-1">
                                 <div class="card text-white bg-default o-hidden h-100">
                                     <div class="card-body">
@@ -165,33 +153,26 @@
 
                                 </div>
                             </div>
-
-
                         </div>
-
-
                         <hr>
-
-
-
-
                         <table style=" border-collapse: separate;">
-
+                            <thead class="text-center">
+                            <th scope="col">Lista de Riesgos</th>
+                            <th scope="col">Lista de Clicks</th>
+                            </thead>
                             <tbody>
-                                <tr >
+                                <tr>
                                     <td width="50%" style=" padding: 5px; border-right: 1px solid black" >
-                                        <div id="divRiesgos" style=" padding: 5px; height:  300px; overflow: auto;">
+                                        <div id="divRiesgos" style=" padding: 5px; height:  350px; overflow: auto;">
                                         </div>
                                     </td>
                                     <td width="50%" style=" padding: 5px;">
-                                        <div id="divRiesgosEncontrados" style=" padding: 5px; height:  300px; overflow: auto;">
+                                        <div id="divRiesgosEncontrados" style=" padding: 5px; height:  350px; overflow: auto;">
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-
-
                         <hr>
                     </div>
                 </div>
@@ -203,11 +184,8 @@
                 <div id="divModalsClicks"></div>
             </section>
         </div>
-
-
-
         <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/jquery/jquery.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
         <script src="vendor/js/sb-admin-2.js"></script>
@@ -223,8 +201,10 @@
             }
         </script>
         <script>
-            var recursoEvaluacion = "Recursos/Video 1.2.mp4";
+            var recursoEvaluacion = "Recursos/Video 1.2.webm";
+            var vidIntro = document.getElementById("vidIntro");
             var vidEvaluacion = document.getElementById("vidEvaluacion");
+            var vidFinal = document.getElementById("vidFinal");
             var objArrayRiesgos = [new puntoRiesgo(36, 42)
                         , new puntoRiesgo(59, 62)
                         , new puntoRiesgo(65, 69)
@@ -236,15 +216,15 @@
                         , new puntoRiesgo(187, 189)
                         , new puntoRiesgo(237, 240)
                         , new puntoRiesgo(252, 255)];
+                    
             var objArrayRiesgosUser = new Array();
-
-            /*var objArrayRiesgosUser = [new puntoRiesgo(33, 36)
-             , new puntoRiesgo(65, 73)
-             , new puntoRiesgo(131, 134)
-             , new puntoRiesgo(150, 154)
-             , new puntoRiesgo(187, 189)
-             , new puntoRiesgo(237, 240)
-             , new puntoRiesgo(252, 255)];*/
+            var objArrayRiesgosUser = [new puntoRiesgo(33, 36)
+                        , new puntoRiesgo(65, 73)
+                        , new puntoRiesgo(131, 134)
+                        , new puntoRiesgo(150, 154)
+                        , new puntoRiesgo(187, 189)
+                        , new puntoRiesgo(237, 240)
+                        , new puntoRiesgo(252, 255)];
 
             var cantAciertos = 0;
             var sumReaccion = 0;
@@ -253,14 +233,6 @@
                     case 1:
                     {
                         $("#modalRiesgo" + id).modal('show');
-                        $("#divModalBody" + id).append("<video class='col-lg-12' id='vidModalRiesgo" + id + "'>"
-                                + "<source src='" + recursoEvaluacion + "#t="
-                                + objArrayRiesgos[id - 1].inicio
-                                + "," + objArrayRiesgos[id - 1].fin
-                                + "'type='video/mp4'></source>"
-                                + "</video>");
-                        var vidModalRiesgo = document.getElementById("vidModalRiesgo" + id);
-                        vidModalRiesgo.play();
                         break;
                     }
                     case 2:
@@ -275,7 +247,6 @@
                     case 1:
                     {
                         $("#modalRiesgo" + id).modal('hide');
-                        $("#vidModalRiesgo" + id).remove();
                         break;
                     }
                     case 2:
@@ -287,14 +258,26 @@
             }
             $(document).ready(function () {
                 vidEvaluacion.src = recursoEvaluacion;
-                $("#btnIniciar").hide();
+                $("#divIntro").hide();
+                $("#divOpciones").hide();
                 $("#divEvaluacion").hide();
                 $("#divFinal").hide();
                 $("#divResultados").hide();
+                $("#divEspera").hide();
                 $("#vidIntro").on('ended', function () {
-                    $("#btnIniciar").show("slow");
+                    $("#divOpciones").show("slow");
+                });
+                $("#btnVerInstruc").click(function () {
+                    $("#divPreIntro").hide();
+                    $("#divIntro").show();
+                    vidIntro.play();
+                });
+                $("#btnRepetir").click(function () {
+                    vidIntro.play();
+                    $("#divResultados").hide();
                 });
                 $("#btnIniciar").click(function () {
+                    vidIntro.pause();
                     $("#divIntro").hide("slow");
                     $("#divEvaluacion").show();
                     vidEvaluacion.play();
@@ -322,41 +305,87 @@
                             sumReaccion = sumReaccion + objArrayRiesgosUser[i].reaccion;
                         }
                     }
-                    $("#divEvaluacion").hide();
-                    $("#divFinal").show("slow");
                     if (cantAciertos / objArrayRiesgos.length > 0.66) {
-                        var vidFinal = document.getElementById("vidFinal");
-                        $("#vidFinal").html('<source src="Recursos/01 - PuntuacionAlta.mp4" type="video/mp4"></source>');
-                        vidFinal.play();
+                        $("#vidFinal").html('<source src="Recursos/01 - PuntuacionAlta.webm" type="video/webm"></source>');
                     } else if (cantAciertos / objArrayRiesgos.length > 0.33) {
-                        var vidFinal = document.getElementById("vidFinal");
-                        $("#vidFinal").html('<source src="Recursos/02 - PuntuacionMedia.mp4" type="video/mp4"></source>');
-                        vidFinal.play();
+                        $("#vidFinal").html('<source src="Recursos/02 - PuntuacionMedia.webm" type="video/webm"></source>');
                     } else {
-                        var vidFinal = document.getElementById("vidFinal");
-                        $("#vidFinal").html('<source src="Recursos/03 - PuntuacionBaja.mp4" type="video/mp4"></source>');
-                        vidFinal.play();
+                        $("#vidFinal").html('<source src="Recursos/03 - PuntuacionBaja.webm" type="video/webm"></source>');
                     }
+                    $("#divEvaluacion").hide();
+                    $("#divEspera").show();
+                    vidFinal.addEventListener('loadeddata', function(){
+                        console.log(vidFinal.readyState);
+                        if(vidFinal.readyState >= 3) {
+                            $("#divEspera").hide();
+                            $("#divFinal").show("slow");
+                            vidFinal.play();
+                        }
+                    });
                     for (i = 0; i < objArrayRiesgos.length; i++) {
                         var video = "<div class='btn alert-default col-lg-4 '  onclick='abrirModal(" + (i + 1) + ",1)'>"
-                                + "<div >"
-                                + "<h5 class='mb-1'>Riesgo " + (i + 1) + "</h5>"
-                                + "</div>"
-                                + "<video class='col-lg-12'>"
-                                + "<source src='" + recursoEvaluacion + "#t="
-                                + objArrayRiesgos[i].inicio
-                                + "," + objArrayRiesgos[i].fin
-                                + "' type='video/mp4'/>"
-                                + "</video>"
-                                + "</div>";
-                        $('#divRiesgos').append(video);
-                        var modal = "<div class='modal fade' id='modalRiesgo" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
-                                + "<div class='modal-dialog'>"
+                                        + "<div >"
+                                        + "<h6 class='mb-1'>Riesgo " + (i + 1) + "</h6>"
+                                        + "</div>"
+                                        + "<video class='col-lg-12'>"
+                                        + "<source src='" + recursoEvaluacion + "#t="
+                                        + objArrayRiesgos[i].inicio
+                                        + "," + (objArrayRiesgos[i].inicio + 0.01)
+                                        + "' type='video/webm'/>"
+                                        + "</video>"
+                                        + "</div>";
+                                $('#divRiesgos').append(video);
+                    }
+                    for (i = 0; i < objArrayRiesgosUser.length; i++) {
+                        if (objArrayRiesgosUser[i].acierto === 1)
+                            var video = "<div class='btn alert-default col-lg-4 '  onclick='abrirModal(" + (i + 1) + ",2)'>"
+                                    + "<div>"
+                                    + "<h6 class='mb-1' style='color: green'>Click " + (i + 1) + "</h6>"
+                                    + "</div>"
+                                    + "<video class='col-lg-12'>"
+                                    + "<source src='" + recursoEvaluacion + "#t="
+                                    + objArrayRiesgosUser[i].inicio
+                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                    + "' type='video/webm'/>"
+                                    + "</video>"
+                                    + "</div>";
+                        else
+                            var video = "<div class='btn alert-default col-lg-4 '   onclick='abrirModal(" + (i + 1) + ",2)'>"
+                                    + "<div>"
+                                    + "<h6 class='mb-1' style='color: red'>Click " + (i + 1) + "</h6>"
+                                    + "</div>"
+                                    + "<video class='col-lg-12'>"
+                                    + "<source src='" + recursoEvaluacion + "#t="
+                                    + objArrayRiesgosUser[i].inicio
+                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
+                                    + "' type='video/webm'/>"
+                                    + "</video>"
+                                    + "</div>";
+                        $('#divRiesgosEncontrados').append(video);
+                    }
+                    $("#divFinal").hide();
+                    $("#divResultados").show("slow");
+                    $("#cantRiesgos").append($("#cantRiesgos").val() + objArrayRiesgos.length);
+                    $("#cantAciertos").append($("#cantAciertos").val() + cantAciertos);
+                    $("#cantErrores").append($("#cantErrores").val() + objArrayRiesgos.length - cantAciertos);
+                    $("#promReacion").html((sumReaccion / cantAciertos).toFixed(3) + "<small style='font-size: xx-small'> Segundos</small>");
+                    $("#porcFinal").append($("#porcFinal").val() + parseInt(((cantAciertos / objArrayRiesgos.length) * 100).toFixed(3)) + " %");
+                });
+                $("#vidFinal").on('ended', function () {
+                    for (i = 0; i < objArrayRiesgos.length; i++) {
+                            var modal = "<div class='modal fade' id='modalRiesgo" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
+                                + "<div class='modal-dialog modal-lg'>"
                                 + "<div class='modal-content'>"
                                 + "<div class='modal-header'>"
                                 + "<h4 class='modal-title'>Riesgo " + (i + 1) + "</h4>"
                                 + "</div>"
                                 + "<div class='modal-body' id='divModalBody" + (i + 1) + "'>"
+                                + "<video class='col-lg-12' id='vidModalRiesgo" + (i + 1) + " preload=auto'>"
+                                + "<source src='" + recursoEvaluacion + "#t="
+                                + (objArrayRiesgos[i].inicio + objArrayRiesgos[i].fin) / 2
+                                + "," + ((objArrayRiesgos[i].inicio + objArrayRiesgos[i].fin) / 2 + 0.01)
+                                + "'type='video/webm'></source>"
+                                + "</video>"
                                 + "</div>"
                                 + "<div class='modal-footer'>"
                                 + "<button type='button' class='btn btn-default' onclick='cerrarModal(" + (i + 1) + ",1)'>Cerrar</button>"
@@ -367,46 +396,18 @@
                         $('#divModalsRiesgos').append(modal);
                     }
                     for (i = 0; i < objArrayRiesgosUser.length; i++) {
-                        if (objArrayRiesgosUser[i].acierto === 1)
-                            var video = "<div class='btn alert-default col-lg-4 '  onclick='abrirModal(" + (i + 1) + ",2)'>"
-                                    + "<div>"
-                                    + "<h5 class='mb-1' style='color: green'>Clic " + (i + 1) + "</h5>"
-                                    + "</div>"
-
-                                    + "<video class='col-lg-12'>"
-                                    + "<source src='" + recursoEvaluacion + "#t="
-                                    + objArrayRiesgosUser[i].inicio
-                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                    + "' type='video/mp4'/>"
-                                    + "</video>"
-
-                                    + "</div>";
-                        else
-                            var video = "<div class='btn alert-default col-lg-4 '   onclick='abrirModal(" + (i + 1) + ",2)'>"
-                                    + "<div>"
-                                    + "<h5 class='mb-1' style='color: red'>Clic " + (i + 1) + "</h5>"
-                                    + "</div>"
-
-                                    + "<video class='col-lg-12'>"
-                                    + "<source src='" + recursoEvaluacion + "#t="
-                                    + objArrayRiesgosUser[i].inicio
-                                    + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                    + "' type='video/mp4'/>"
-                                    + "</video>"
-                                    + "</div>";
-                        $('#divRiesgosEncontrados').append(video);
                         var modal = "<div class='modal fade' id='modalClick" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
-                                + "<div class='modal-dialog'>"
+                                + "<div class='modal-dialog modal-lg'>"
                                 + "<div class='modal-content'>"
                                 + "<div class='modal-header'>"
-                                + "<h4 class='modal-title'>Intento " + (i + 1) + "</h4>"
+                                + "<h4 class='modal-title'>Click " + (i + 1) + "</h4>"
                                 + "</div>"
                                 + "<div class='modal-body' id='divModalBodyClick" + (i + 1) + "'>"
                                 + "<video class='col-lg-12' id='vidModalClick" + (i + 1) + "'>"
                                 + "<source src='" + recursoEvaluacion + "#t="
                                 + objArrayRiesgosUser[i].inicio
                                 + "," + (objArrayRiesgosUser[i].inicio + 0.01)
-                                + "'type='video/mp4'></source>"
+                                + "'type='video/webm'></source>"
                                 + "</video>"
                                 + "</div>"
                                 + "<div class='modal-footer'>"
@@ -417,15 +418,6 @@
                                 + "</div>";
                         $('#divModalsClicks').append(modal);
                     }
-                });
-                $("#vidFinal").on('ended', function () {
-                    $("#divFinal").hide();
-                    $("#divResultados").show("slow");
-                    $("#cantRiesgos").append($("#cantRiesgos").val() + objArrayRiesgos.length);
-                    $("#cantAciertos").append($("#cantAciertos").val() + cantAciertos);
-                    $("#cantErrores").append($("#cantErrores").val() + objArrayRiesgosUser.length - cantAciertos);
-                    $("#promReacion").append($("#promReacion").val() + (sumReaccion / cantAciertos));
-                    $("#porcFinal").append($("#porcFinal").val() + ((cantAciertos / objArrayRiesgos.length) * 100).toFixed(3));
                 });
             });
         </script>
