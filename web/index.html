@@ -201,6 +201,7 @@
             }
         </script>
         <script>
+            /*var recursoEvaluacion = "Recursos/prueba_Censura.webm";*/
             var recursoEvaluacion = "Recursos/Video 1.2.webm";
             var vidIntro = document.getElementById("vidIntro");
             var vidEvaluacion = document.getElementById("vidEvaluacion");
@@ -218,13 +219,13 @@
                         , new puntoRiesgo(252, 255)];
                     
             var objArrayRiesgosUser = new Array();
-            var objArrayRiesgosUser = [new puntoRiesgo(33, 36)
+            /*var objArrayRiesgosUser = [new puntoRiesgo(33, 36)
                         , new puntoRiesgo(65, 73)
                         , new puntoRiesgo(131, 134)
                         , new puntoRiesgo(150, 154)
                         , new puntoRiesgo(187, 189)
                         , new puntoRiesgo(237, 240)
-                        , new puntoRiesgo(252, 255)];
+                        , new puntoRiesgo(252, 255)];*/
 
             var cantAciertos = 0;
             var sumReaccion = 0;
@@ -363,8 +364,6 @@
                                     + "</div>";
                         $('#divRiesgosEncontrados').append(video);
                     }
-                    $("#divFinal").hide();
-                    $("#divResultados").show("slow");
                     $("#cantRiesgos").append($("#cantRiesgos").val() + objArrayRiesgos.length);
                     $("#cantAciertos").append($("#cantAciertos").val() + cantAciertos);
                     $("#cantErrores").append($("#cantErrores").val() + objArrayRiesgos.length - cantAciertos);
@@ -372,6 +371,8 @@
                     $("#porcFinal").append($("#porcFinal").val() + parseInt(((cantAciertos / objArrayRiesgos.length) * 100).toFixed(3)) + " %");
                 });
                 $("#vidFinal").on('ended', function () {
+                    $("#divFinal").hide();
+                    $("#divResultados").show("slow");
                     for (i = 0; i < objArrayRiesgos.length; i++) {
                             var modal = "<div class='modal fade' id='modalRiesgo" + (i + 1) + "' role='dialog' data-backdrop='static' data-keyboard='false'>"
                                 + "<div class='modal-dialog modal-lg'>"
